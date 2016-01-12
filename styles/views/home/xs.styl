@@ -1,0 +1,132 @@
+#header-home
+  position relative
+
+  &:before
+    background-image url('/img/bg/broadway.jpg')
+    background-position center center
+    background-repeat no-repeat
+    background-size cover
+    content ''
+    height 100%
+    left 0
+    position absolute
+    top 0
+    width 100%
+    z-index 0
+
+  &:after
+    background-color rgba(0,0,0,0.5)
+    content ''
+    height 100%
+    left 0
+    position absolute
+    top 0
+    width 100%
+    z-index 1
+
+  #header-home-content
+    color #fff
+    text-align center
+    z-index 2
+
+  h1
+    text-shadow 0 0 30px rgba(0, 0, 0, 0.8)
+
+  h2
+    font-size 26px
+    font-weight 300
+    line-height 1.4
+
+  p
+    color #ccc
+
+#marquee-container
+  text-align: center
+
+#marquee
+  max-width: 400px
+  width 100%
+
+@media mq-xs-min
+
+  #header-home
+
+    #header-home-logo
+
+      img
+        display block
+        margin 0 auto
+        width 90%
+
+  .tito-widget
+    box-sizing border-box
+
+    .row
+      border-bottom 1px solid #ccc
+      height 100px
+      margin-left 1%
+      padding 0 20px
+      position relative
+      width 98%
+
+      .tito-ticket-name-wrapper
+        align-self center
+        border 0
+        margin-right 20px
+
+      .tito-ticket-name
+        font-size 20px
+
+      .tito-ticket-price-quantity-wrapper, .tito-ticket-price-quantity
+        align-self center
+        border 0
+
+      .tito-ticket-price-quantity-wrapper
+        height 100px
+        right 0
+        position absolute
+        top 6px
+        width 200px
+
+      .tito-ticket-status-ended
+        position absolute
+        right 0
+        top 6px
+
+      .tito-ticket-upcoming-explanation-wrapper
+        display block
+        margin-right 0
+        margin-top 20px
+        width 100%
+
+        em
+          display inline
+          margin 0
+
+  .section-event-map
+    background-color almostblack
+    padding 0
+
+    .map-location-container
+      color #fff
+      flex-basis 100%
+      padding 20px 0
+
+      h2
+        color #fff
+
+      a
+        color #fff
+
+      .map-location-title
+        margin-top 20px
+
+      .map-new-tab
+        display block
+        margin 0 auto
+        text-align center
+        width 90%
+
+    .map-container
+      flex-basis 100%
+      width 100%
