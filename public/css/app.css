@@ -2428,7 +2428,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: #fff;
+  background-color: #f1b034;
 }
 @media (min-width: 768px) {
   .hide-sm {
@@ -2537,48 +2537,27 @@ section.container {
   }
 }
 
-#header-home {
-  position: relative;
-}
-#header-home:before {
-  background-image: url("/img/bg/broadway.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
-#header-home:after {
-  background-color: rgba(0,0,0,0.5);
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-#header-home #header-home-content {
-  color: #fff;
+#header-hero #header-hero-content {
+  color: #231f20;
+  background-color: #fff;
   text-align: center;
-  z-index: 2;
+  min-height: 200px;
 }
-#header-home h1 {
-  text-shadow: 0 0 30px rgba(0,0,0,0.8);
+#header-hero h1 {
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
 }
-#header-home h2 {
+#header-hero h1:first-child {
+  padding: 0.67em 0 0 0;
+}
+#header-hero h2 {
   font-size: 26px;
   font-weight: 300;
   line-height: 1.4;
 }
-#header-home p {
+#header-hero p {
   color: #ccc;
 }
 #marquee-container {
@@ -2589,62 +2568,10 @@ section.container {
   width: 100%;
 }
 @media (min-width: 320px) {
-  #header-home #header-home-logo img {
+  #header-hero #header-hero-logo img {
     display: block;
     margin: 0 auto;
     width: 90%;
-  }
-  .tito-widget {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .tito-widget .row {
-    border-bottom: 1px solid #ccc;
-    height: 100px;
-    margin-left: 1%;
-    padding: 0 20px;
-    position: relative;
-    width: 98%;
-  }
-  .tito-widget .row .tito-ticket-name-wrapper {
-    -webkit-align-self: center;
-    align-self: center;
-    -ms-flex-item-align: center;
-    border: 0;
-    margin-right: 20px;
-  }
-  .tito-widget .row .tito-ticket-name {
-    font-size: 20px;
-  }
-  .tito-widget .row .tito-ticket-price-quantity-wrapper,
-  .tito-widget .row .tito-ticket-price-quantity {
-    -webkit-align-self: center;
-    align-self: center;
-    -ms-flex-item-align: center;
-    border: 0;
-  }
-  .tito-widget .row .tito-ticket-price-quantity-wrapper {
-    height: 100px;
-    right: 0;
-    position: absolute;
-    top: 6px;
-    width: 200px;
-  }
-  .tito-widget .row .tito-ticket-status-ended {
-    position: absolute;
-    right: 0;
-    top: 6px;
-  }
-  .tito-widget .row .tito-ticket-upcoming-explanation-wrapper {
-    display: block;
-    margin-right: 0;
-    margin-top: 20px;
-    width: 100%;
-  }
-  .tito-widget .row .tito-ticket-upcoming-explanation-wrapper em {
-    display: inline;
-    margin: 0;
   }
   .section-event-map {
     background-color: #393836;
@@ -2679,28 +2606,23 @@ section.container {
 }
 
 @media (min-width: 768px) {
-  #header-home {
+  #header-hero {
     margin-top: 0;
   }
-  #header-home #header-home-logo {
-    margin: 40px 0;
+  #header-hero #header-hero-logo {
+    margin: 20px 0 0 0;
+  }
+  #header-hero #header-hero-logo img {
+    width: 60%;
   }
 }
 
 @media (min-width: 1024px) {
-  #header-home {
+  #header-hero {
     height: 100%;
   }
-  #header-home #header-home-logo {
-    margin-bottom: 100px;
-    margin-top: 200px;
-  }
-  #header-home #header-home-logo img {
-    width: 30%;
-    max-height: 400px;
-  }
-  .tito-widget .row .tito-ticket-upcoming-explanation-wrapper {
-    margin-top: 20px;
+  #header-hero #header-hero-logo img {
+    width: 50%;
   }
   #section-subtle-highlight {
     margin-top: 40px;
