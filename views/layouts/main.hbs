@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EmpireJS 2015</title>
-  <meta name="description" content="Empire on Broadway. April 25th &amp; 26th in New York City. Tickets on sale now!">
+  <title>EmpireJS 2016</title>
+  <meta name="description" content="EmpireJS is back in 2016. Late May in New York City. Tickets on sale soon!">
 
-  <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1' />
   <link rel="stylesheet" type="text/css" href="/css/app.css" media="screen">
-
   <link rel="icon" type="image/png" href="/img/favicon.png">
 
   <script type="text/javascript">
@@ -20,27 +18,25 @@
 
   var gaTrackerOptions;
 
-  if(window.location.hostname == 'localhost') {
-    gaTrackerOptions = {
-      'cookieDomain': 'none'
-    }
-  }
-
-  else {
+  if (window.location.hostname == 'localhost') {
+    gaTrackerOptions = { 'cookieDomain': 'none' }
+  } else {
     gaTrackerOptions = 'auto'
   }
 
-  ga('create', 'UA-60806622-1', gaTrackerOptions);
-  ga('send', 'pageview');
+  //
+  // TODO: re-add Google Analytics
+  //
+  // ga('create', 'UA-60806622-1', gaTrackerOptions);
+  // ga('send', 'pageview');
   </script>
-
-  <script src='https://js.tito.io/v1' async></script>
 </head>
 <body>
 
   {{!> icons}}
 
-  {{> navigation}}
+  {{!-- Removed for splash page --}}
+  {{!> navigation}}
 
   {{{ body }}}
 

@@ -2,6 +2,7 @@ process.on('uncaughtException', console.log)
 
 var chalk            = require('chalk'),
     concat           = require('gulp-concat'),
+    execSync         = require('child_process').execSync,
     fs               = require('fs'),
     gulp             = require('gulp'),
     gutil            = require('gulp-util'),
@@ -11,23 +12,24 @@ var chalk            = require('chalk'),
     path             = require('path'),
     sequence         = require('run-sequence'),
     size             = require('gulp-size'),
-    to5              = require('gulp-babel'),
-    watching         = require('paradigm-minimist-watching')
+    to5              = require('gulp-babel');
 
-require('paradigm-gulp-clean')({
-  gulp: gulp
-})
+gulp.task('clean', function(done) {
+  execSync('rm -rf public');
+  done();
+});
 
-require('paradigm-gulp-copy-assets')({
-  gulp: gulp
-})
+gulp.task('copy', function() {
+  gulp.src(['./assets/**/*'])
+    .pipe(gulp.dest(path.join(process.cwd(), './public/')))
+});
 
-require('paradigm-gulp-watch-handlebars')({
-  gulp: gulp,
-  livereload: livereload
-})
+gulp.task('watch-handlebars', function() {
+  return gulp.src('**/*.hbs', { read: false })
+    .pipe(livereload())
+});
 
-gulp.task('build-browser', ['build-browser-flexstrap', 'build-browser-jquery'])
+gulp.task('build-browser', ['build-browser-flexstrap', 'build-browser-jquery']);
 
 gulp.task('build-browser-flexstrap', function() {
 
@@ -38,67 +40,29 @@ gulp.task('build-browser-flexstrap', function() {
   ])
   .pipe(to5())
   .pipe(concat('flexstrap.js'))
-  .pipe(gulp.dest('./public/js'))
+  .pipe(gulp.dest('./public/js'));
 
 })
 
 gulp.task('build-browser-jquery', function() {
-
-  gulp.src([
-    './bower_components/jquery/dist/jquery.min.js'
-  ])
-  .pipe(gulp.dest('./public/js/'))
-
-})
-
-gulp.task('clean', function(done) {
-
-  /*
-  Note, the gulp-clean task is janky
-  */
-  //src('./public/**/*', {read: false}).pipe(clean())
-
-  sh.run('rm -rf public')
-
-  done()
-
-})
-
-gulp.task('copy', ['copy-app-assets'])
-
-gulp.task('copy-app-assets', function() {
-
-  /*return src([
-    //'./bower_components/flexstrap/src/icons/svg/fontello.svg'
-  ])
-  .pipe(dest('./public/icons'))*/
-
-  gulp.src([
-    './assets/**/*'
-  ])
-  .pipe(gulp.dest('./public/'))
-
-})
-
+  gulp.src(['./bower_components/jquery/dist/jquery.min.js'])
+    .pipe(gulp.dest('./public/js/'));
+});
 
 gulp.task('generate-app-icons', function(done) {
+  mkdirp.sync(path.join(__dirname, '/public/icons'));
 
-  mkdirp.sync(path.join(__dirname, '/public/icons'))
+  var icons = fs.readFileSync(path.join(__dirname, './assets/icons/fontello.svg'), 'utf8');
 
-  var icons = fs.readFileSync(path.join(__dirname, './assets/icons/fontello.svg'), 'utf8')
+  icons = icons.split('svg11.dtd">');
+  icons = icons[1];
+  icons = icons.split('<svg');
 
-  icons = icons.split('svg11.dtd">')
-  icons = icons[1]
-  icons = icons.split('<svg')
+  var output = '<svg class="hidden"' + icons[1];
 
-  var output = '<svg class="hidden"' + icons[1]
-
-  fs.writeFileSync(path.join(__dirname, './public/icons/fontello.svg'), output, 'utf8')
-
-  done()
-
-})
-
+  fs.writeFileSync(path.join(__dirname, './public/icons/fontello.svg'), output, 'utf8');
+  done();
+});
 
 require('paradigm-gulp-stylus')({
   dest: './public/css/app.css',
@@ -117,41 +81,36 @@ require('paradigm-gulp-stylus')({
     './bower_components/flexstrap/src/icons/animation.css',
     './assets/icons/fontello.css',
     './bower_components/flexstrap/src/index.styl',
-    './styles/base/fonts/montserrat/montserrat.css',
-    './styles/base/fonts/opensans/regular.css', // Not using the other families atm
-    './styles/base/fonts/**.styl',
-    './styles/base/grid.styl',
-    './styles/base/logos.styl',
-    './styles/partials/**/base.styl',
-    './styles/partials/**/xs.styl',
-    './styles/partials/**/sm.styl',
-    './styles/partials/**/md.styl',
-    './styles/partials/**/lg.styl',
-    './styles/partials/**/xl.styl',
-    './styles/base/footer.styl',
+    // READD AFTER SPLASH PAGE
+    // './styles/partials/**/base.styl',
+    // './styles/partials/**/xs.styl',
+    // './styles/partials/**/sm.styl',
+    // './styles/partials/**/md.styl',
+    // './styles/partials/**/lg.styl',
+    // './styles/partials/**/xl.styl',
     './styles/base/site.styl',
-    './styles/views/**/base.styl',
-    './styles/views/**/xs.styl',
-    './styles/views/**/sm.styl',
-    './styles/views/**/md.styl',
-    './styles/views/**/lg.styl',
-    './styles/views/**/xl.styl',
-    './styles/views/about.styl',
-    './styles/views/contact.styl',
-    './styles/views/home/sponsors.styl'
+    './styles/components/hero/xs.styl',
+    './styles/components/hero/sm.styl',
+    './styles/components/hero/md.styl',
+    './styles/components/hero/lg.styl',
+    './styles/components/hero/xl.styl'
+    // READD AFTER SPLASH PAGE
+    // './styles/components/**/xs.styl',
+    // './styles/components/**/sm.styl',
+    // './styles/components/**/md.styl',
+    // './styles/components/**/lg.styl',
+    // './styles/components/**/xl.styl'
   ]
-})
+});
 
 require('paradigm-gulp-watch')({
   gulp: gulp,
   livereload: livereload
-})
+});
 
 gulp.task('build', function(done) {
+  sequence(['copy', 'build-browser', 'styles'], done);
+});
 
-  sequence(['copy', 'build-browser', 'styles'], done)
-
-})
-
-gulp.task('styles', ['stylus'])
-gulp.task('w', ['watch'])
+gulp.task('styles', ['stylus']);
+gulp.task('w', ['watch']);
