@@ -1,4 +1,3 @@
-// This event is slow to fire because of tito widget
 $(document).ready(function() {
 
   new Flexstrap.NavigationComponent({

@@ -2,28 +2,22 @@
 @import 'mixins/gradients/_definitions'
 @import '_definitions'
 
+/*
+ * Base styles for HTML elements
+ */
+
 html, body
   height 100%
 
 body
-  background-color #f1b034
+  background-color #FFF
 
-.hide-sm
+a
+  color #fff
+  text-decoration underline
 
-  @media mq-sm-min
-    display none
-
-#section-scholarship
-  a
-    color #000
-    font-weight bold
-    text-decoration underline
-
-    &:hover
-      color #333
-
-    &:visited
-      color #000
+  &:hover
+    color #ADADAD
 
 h1, h2
   text-align center
@@ -33,16 +27,17 @@ ul, li
   margin 0
   padding 0
 
+/*
+ * Cross-cutting shared classes
+ */
+.hide-sm
+  @media mq-sm-min
+    display none
+
 .icon-container + h2
   margin 10px 0 20px
 
 .icon-container
-  //
-  // This causes Chrome on a normal MBP to consume 100%+ CPU
-  // (i.e. one full CPU). Removing it.
-  //
-  // animation pulsate 2.5s cubic-bezier(0.445, 0.05, 0.55, 0.95)
-  // animation-iteration-count infinite
   background-color empire-green
   border-radius 64px
   color #fff
@@ -79,6 +74,9 @@ section.container
   margin 0 auto 40px
   width 25%
 
+/*
+ * Customization of InfoBox.js
+ */
 .infoBox {
   text-align: center;
 }
@@ -124,6 +122,5 @@ section.container
 }
 
 @media (min-width: 320px) and (max-width: 767px)
-
   .divider-inner
     margin-bottom 30px

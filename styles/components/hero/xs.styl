@@ -1,72 +1,52 @@
 #header-hero
 
   #header-hero-content
-    color #231f20
-    text-align center
     min-height 200px
-    position absolute
-    left 480px
-    top 580px
-    z-index 1
+
+  h1, h2
+    font-weight bold
+    margin 5px 0 0 0
 
   h1
-    margin 0
-    font-weight bold
-    text-transform uppercase
-    padding 0
-
-    &:first-child
-      padding 0.67em 0 0 0
-
+    background #333
+    color #fff
+    line-height 1.75
 
   h2
+    text-transform uppercase
     font-size 26px
-    font-weight 300
-    line-height 1.4
+    font-weight 600
+    line-height 1.5
 
-  p
-    color #ccc
+    &:first-child
+      margin 0
 
-#marquee-container
-  text-align: center
+    &.location
+      background empire-yellow
+      color #333
 
-#marquee
-  max-width: 400px
-  width 100%
+    &.date
+      background empire-orange
+      color #fff
+
+  h1 + h2
+    background #333
+    text-transform lowercase
+
+    a
+      text-decoration none
 
 @media mq-xs-min
 
   #header-hero
+
     #header-hero-logo
+
       img
         display block
         margin 0 auto
         width 90%
 
-  .section-event-map
-    background-color almostblack
-    padding 0
-
-    .map-location-container
-      color #fff
-      flex-basis 100%
-      padding 20px 0
-
-      h2
-        color #fff
-
-      a
-        color #fff
-
-      .map-location-title
-        margin-top 20px
-
-      .map-new-tab
-        display block
-        margin 0 auto
-        text-align center
-        width 90%
-
-    .map-container
-      flex-basis 100%
-      width 100%
+    h1, h2
+      text-align: center
+      padding: 0

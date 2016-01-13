@@ -2423,28 +2423,22 @@ p.lead {
   }
 }
 
+/*
+ * Base styles for HTML elements
+ */
 html,
 body {
   height: 100%;
 }
 body {
-  background-color: #f1b034;
+  background-color: #fff;
 }
-@media (min-width: 768px) {
-  .hide-sm {
-    display: none;
-  }
-}
-#section-scholarship a {
-  color: #000;
-  font-weight: bold;
+a {
+  color: #fff;
   text-decoration: underline;
 }
-#section-scholarship a:hover {
-  color: #333;
-}
-#section-scholarship a:visited {
-  color: #000;
+a:hover {
+  color: #adadad;
 }
 h1,
 h2 {
@@ -2455,6 +2449,14 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+/*
+ * Cross-cutting shared classes
+ */
+@media (min-width: 768px) {
+  .hide-sm {
+    display: none;
+  }
 }
 .icon-container + h2 {
   margin: 10px 0 20px;
@@ -2489,6 +2491,9 @@ section.container {
   margin: 0 auto 40px;
   width: 25%;
 }
+/*
+ * Customization of InfoBox.js
+ */
 .infoBox {
   text-align: center;
 }
@@ -2538,34 +2543,41 @@ section.container {
 }
 
 #header-hero #header-hero-content {
-  color: #231f20;
-  background-color: #fff;
-  text-align: center;
   min-height: 200px;
 }
-#header-hero h1 {
-  margin: 0;
+#header-hero h1,
+#header-hero h2 {
   font-weight: bold;
-  text-transform: uppercase;
-  padding: 0;
+  margin: 5px 0 0 0;
 }
-#header-hero h1:first-child {
-  padding: 0.67em 0 0 0;
+#header-hero h1 {
+  background: #333;
+  color: #fff;
+  line-height: 1.75;
 }
 #header-hero h2 {
+  text-transform: uppercase;
   font-size: 26px;
-  font-weight: 300;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1.5;
 }
-#header-hero p {
-  color: #ccc;
+#header-hero h2:first-child {
+  margin: 0;
 }
-#marquee-container {
-  text-align: center;
+#header-hero h2.location {
+  background: #fff017;
+  color: #333;
 }
-#marquee {
-  max-width: 400px;
-  width: 100%;
+#header-hero h2.date {
+  background: #f1b034;
+  color: #fff;
+}
+#header-hero h1 + h2 {
+  background: #333;
+  text-transform: lowercase;
+}
+#header-hero h1 + h2 a {
+  text-decoration: none;
 }
 @media (min-width: 320px) {
   #header-hero #header-hero-logo img {
@@ -2573,35 +2585,10 @@ section.container {
     margin: 0 auto;
     width: 90%;
   }
-  .section-event-map {
-    background-color: #393836;
-    padding: 0;
-  }
-  .section-event-map .map-location-container {
-    color: #fff;
-    -webkit-flex-basis: 100%;
-    flex-basis: 100%;
-    padding: 20px 0;
-  }
-  .section-event-map .map-location-container h2 {
-    color: #fff;
-  }
-  .section-event-map .map-location-container a {
-    color: #fff;
-  }
-  .section-event-map .map-location-container .map-location-title {
-    margin-top: 20px;
-  }
-  .section-event-map .map-location-container .map-new-tab {
-    display: block;
-    margin: 0 auto;
+  #header-hero h1,
+  #header-hero h2 {
     text-align: center;
-    width: 90%;
-  }
-  .section-event-map .map-container {
-    -webkit-flex-basis: 100%;
-    flex-basis: 100%;
-    width: 100%;
+    padding: 0;
   }
 }
 
@@ -2613,7 +2600,12 @@ section.container {
     margin: 20px 0 0 0;
   }
   #header-hero #header-hero-logo img {
-    width: 60%;
+    width: 80%;
+  }
+  #header-hero h1,
+  #header-hero h2 {
+    text-align: center;
+    padding: 0;
   }
 }
 
@@ -2622,22 +2614,22 @@ section.container {
     height: 100%;
   }
   #header-hero #header-hero-logo img {
-    width: 50%;
+    width: 70%;
+    float: right;
   }
-  #section-subtle-highlight {
-    margin-top: 40px;
+  #header-hero h1,
+  #header-hero h2 {
+    text-align: left;
+    padding: 0 0 0 10px;
   }
 }
 
-@media (min-width: 1650px) {
-  .container-fluid-img {
-    height: 600px;
+@media (min-width: 1280px) {
+  #header-hero {
+    height: 100%;
   }
-  #img-fiberlashes2 {
-    background-position-y: -200px;
-  }
-  .widget-youtube {
-    height: aspectHeight(560, 315, 1280);
-    width: 1280px;
+  #header-hero h1,
+  #header-hero h2 {
+    padding: 0 0 0 30px;
   }
 }
