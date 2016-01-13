@@ -1,0 +1,43 @@
+{
+  "name": "empirejs-2015",
+  "description": "Homepage for 2015.empirejs.org",
+  "version": "2.5.4",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/empirejs/2015.empirejs.org.git"
+  },
+  "domains": [
+    "empirejs.com",
+    "empirejs.org",
+    "www.empirejs.com",
+    "www.empirejs.org",
+    "2016.empirejs.com",
+    "2016.empirejs.org"
+  ],
+  "dependencies": {
+    "babel": "^4.7.0",
+    "glob": "^6.0.4",
+    "paradigm-server-express": "*"
+  },
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "subdomain": "empirejs-2016",
+  "engines": {
+    "node": "v4.2.x"
+  },
+  "devDependencies": {
+    "chalk": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-livereload": "^3.8.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-size": "^1.2.1",
+    "gulp-util": "^3.0.4",
+    "mkdirp": "^0.5.0",
+    "paradigm-gulp-stylus": "0.0.1",
+    "paradigm-gulp-watch": "*",
+    "run-sequence": "^1.0.2"
+  }
+}

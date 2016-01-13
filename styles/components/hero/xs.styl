@@ -1,0 +1,52 @@
+#header-hero
+
+  #header-hero-content
+    min-height 200px
+
+  h1, h2
+    font-weight bold
+    margin 5px 0 0 0
+
+  h1
+    background #333
+    color #fff
+    line-height 1.75
+
+  h2
+    text-transform uppercase
+    font-size 26px
+    font-weight 600
+    line-height 1.5
+
+    &:first-child
+      margin 0
+
+    &.location
+      background empire-yellow
+      color #333
+
+    &.date
+      background empire-orange
+      color #fff
+
+  h1 + h2
+    background #333
+    text-transform lowercase
+
+    a
+      text-decoration none
+
+@media mq-xs-min
+
+  #header-hero
+
+    #header-hero-logo
+
+      img
+        display block
+        margin 0 auto
+        width 90%
+
+    h1, h2
+      text-align: center
+      padding: 0
