@@ -1,10 +1,10 @@
 {
-  "name": "empirejs-2015",
-  "description": "Homepage for 2015.empirejs.org",
-  "version": "2.5.4",
+  "name": "empirejs-2016",
+  "description": "Homepage for 2016.empirejs.org",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "http://github.com/empirejs/2015.empirejs.org.git"
+    "url": "http://github.com/empirejs/2016.empirejs.org.git"
   },
   "domains": [
     "empirejs.com",
