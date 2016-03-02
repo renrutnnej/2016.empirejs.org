@@ -2574,7 +2574,6 @@ section.container {
 }
 #header-hero h1 + h2 {
   background: #333;
-  text-transform: lowercase;
 }
 #header-hero h1 + h2 a {
   text-decoration: none;
