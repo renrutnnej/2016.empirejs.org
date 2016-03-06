@@ -2578,6 +2578,14 @@ section.container {
 #header-hero h1 + h2 a {
   text-decoration: none;
 }
+#header-hero .coc {
+  color: #000;
+  padding-top: 50px;
+}
+#header-hero .coc a {
+  text-decoration: none;
+  color: #f1b034;
+}
 @media (min-width: 320px) {
   #header-hero #header-hero-logo img {
     display: block;
