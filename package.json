@@ -20,6 +20,7 @@
     "paradigm-server-express": "*"
   },
   "scripts": {
+    "build": "gulp build",
     "start": "node ./index.js"
   },
   "subdomain": "empirejs-2016",
