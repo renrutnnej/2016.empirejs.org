@@ -1,53 +1,34 @@
 process.on('uncaughtException', console.log)
 
-var chalk            = require('chalk'),
-    concat           = require('gulp-concat'),
-    execSync         = require('child_process').execSync,
-    fs               = require('fs'),
-    gulp             = require('gulp'),
-    gutil            = require('gulp-util'),
-    livereload       = require('gulp-livereload'),
-    mkdirp           = require('mkdirp'),
-    mocha            = require('gulp-mocha'),
-    path             = require('path'),
-    sequence         = require('run-sequence'),
-    size             = require('gulp-size'),
-    to5              = require('gulp-babel');
+var chalk                  = require('chalk'),
+    concat                 = require('gulp-concat'),
+    execSync               = require('child_process').execSync,
+    fs                     = require('fs'),
+    gulp                   = require('gulp'),
+    gutil                  = require('gulp-util'),
+    livereload             = require('gulp-livereload'),
+    mkdirp                 = require('mkdirp'),
+    nano                   = require('gulp-cssnano'),
+    path                   = require('path'),
+    postcss                = require('gulp-postcss'),
+    postcssAutoprefixer    = require('autoprefixer'),
+    postcssDiscardComments = require('postcss-discard-comments'),
+    postcssFonts           = require('postcss-font-magician'),
+    postcssMixins          = require('postcss-mixins'),
+    postcssNested          = require('postcss-nested'),
+    postcssVars            = require('postcss-simple-vars'),
+    sourcemaps             = require('gulp-sourcemaps'),
+    webpack                = require('webpack-stream')
 
 gulp.task('clean', function(done) {
-  execSync('rm -rf public');
-  done();
-});
+  execSync('rm -rf public')
+  done()
+})
 
 gulp.task('copy', function() {
   gulp.src(['./assets/**/*'])
     .pipe(gulp.dest(path.join(process.cwd(), './public/')))
-});
-
-gulp.task('watch-handlebars', function() {
-  return gulp.src('**/*.hbs', { read: false })
-    .pipe(livereload())
-});
-
-gulp.task('build-browser', ['build-browser-flexstrap', 'build-browser-jquery']);
-
-gulp.task('build-browser-flexstrap', function() {
-
-  gulp.src([
-    './bower_components/flexstrap/src/index.js',
-    './bower_components/flexstrap/src/components/base/component.js',
-    './bower_components/flexstrap/src/components/navigation/index.js'
-  ])
-  .pipe(to5())
-  .pipe(concat('flexstrap.js'))
-  .pipe(gulp.dest('./public/js'));
-
 })
-
-gulp.task('build-browser-jquery', function() {
-  gulp.src(['./bower_components/jquery/dist/jquery.min.js'])
-    .pipe(gulp.dest('./public/js/'));
-});
 
 gulp.task('generate-app-icons', function(done) {
   mkdirp.sync(path.join(__dirname, '/public/icons'));
@@ -62,55 +43,96 @@ gulp.task('generate-app-icons', function(done) {
 
   fs.writeFileSync(path.join(__dirname, './public/icons/fontello.svg'), output, 'utf8');
   done();
-});
+})
 
-require('paradigm-gulp-stylus')({
-  dest: './public/css/app.css',
-  gulp: gulp,
-  imports: [
-    'nib',
-    path.join(__dirname, './bower_components/flexstrap/src/grid/_definitions.styl'),
-    path.join(__dirname, './styles/base/_definitions.styl')
-  ],
-  paths: [
-    __dirname + '/bower_components/flexstrap/src/components',
-    __dirname + '/bower_components/flexstrap/src'
-  ],
-  src: [
-    './bower_components/normalize.css/normalize.css',
-    './bower_components/flexstrap/src/icons/animation.css',
-    './assets/icons/fontello.css',
-    './bower_components/flexstrap/src/index.styl',
-    // READD AFTER SPLASH PAGE
-    // './styles/partials/**/base.styl',
-    // './styles/partials/**/xs.styl',
-    // './styles/partials/**/sm.styl',
-    // './styles/partials/**/md.styl',
-    // './styles/partials/**/lg.styl',
-    // './styles/partials/**/xl.styl',
-    './styles/base/site.styl',
-    './styles/components/hero/xs.styl',
-    './styles/components/hero/sm.styl',
-    './styles/components/hero/md.styl',
-    './styles/components/hero/lg.styl',
-    './styles/components/hero/xl.styl'
-    // READD AFTER SPLASH PAGE
-    // './styles/components/**/xs.styl',
-    // './styles/components/**/sm.styl',
-    // './styles/components/**/md.styl',
-    // './styles/components/**/lg.styl',
-    // './styles/components/**/xl.styl'
-  ]
-});
+gulp.task('postcss', function() {
+  //flush cache of the global vars js
+  delete require.cache[require.resolve('./styles/base/variables')];
+  return gulp.src([
+    './styles/base/base.css',
+    './styles/blocks/**/xs.css',
+    './styles/blocks/**/sm.css',
+    './styles/blocks/**/md.css',
+    './styles/blocks/**/lg.css',
+  ])
+  .pipe(sourcemaps.init())
+  .pipe(postcss([
+    postcssMixins({ mixinsDir:path.join(__dirname,'/styles/blocks/mixins/') }),
+    postcssVars({ variables: require('./styles/base/variables') }),
+    postcssFonts({
+      hosted: './assets/fonts'
+    }),
+    postcssNested,
+    postcssAutoprefixer({ browsers: ['last 2 versions', '> 2%'] }),
+    postcssDiscardComments
+  ]))
+  .pipe(concat('app.css'))
+  .pipe(nano())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('./public/css'))
+})
 
-require('paradigm-gulp-watch')({
-  gulp: gulp,
-  livereload: livereload
-});
+gulp.task('vendor-styles', function() {
 
-gulp.task('build', function(done) {
-  sequence(['copy', 'build-browser', 'styles'], done);
-});
+  return gulp.src([
+    './bower_components/bootstrap/dist/css/bootstrap.css',
+    './bower_components/font-awesome/css/font-awesome.min.css'
+  ])
+  .pipe(concat('vendor.css'))
+  .pipe(nano())
+  .pipe(gulp.dest('./public/css'))
 
-gulp.task('styles', ['stylus']);
-gulp.task('w', ['watch']);
+})
+
+gulp.task('watch', function () {
+
+  nodemon({
+    env: env,
+    ext: 'hbs',
+    ignore: ['*.css', '*.styl'],
+    //nodeArgs: ['--debug'],
+    script: 'index.js',
+    watch: ['views/partials']
+  })
+  .on('start', function() {
+
+    livereload.listen()
+
+    gulp.watch(path.join(__dirname, './assets/**/*'),             ['copy-assets'])
+    gulp.watch(path.join(__dirname, './styles/blocks/**/*.css'),  ['postcss'])
+    gulp.watch(path.join(__dirname, './styles/blocks/**/*.js'),   ['postcss']) //with postcss is possible to have js files to watch
+    gulp.watch(path.join(__dirname, './public/**/*.css'),         livereload.changed)
+    gulp.watch(path.join(__dirname, './public/**/*.js'),          livereload.changed)
+    gulp.watch(path.join(__dirname, './app/**/*.js'),             ['webpack'])
+    gulp.watch(path.join(__dirname, './views/**/*.hbs'),          livereload.reload)
+    gulp.watch(path.join(__dirname, './views/helpers/*.js'),      livereload.reload)
+
+  })
+  //.on('change', ['lint'])
+  .on('restart', function () {
+
+    var files = arguments[0]
+
+    files.forEach( function(file) {
+      file = file.replace(process.cwd(), '') // Just show relative file path.
+
+      console.log('File changed:', chalk.yellow(file))
+    })
+
+  })
+
+})
+
+gulp.task('webpack', function() {
+
+  gulp.src([])
+  .pipe(webpack(require('./webpack.config')))
+  .pipe(gulp.dest('./public/js/'))
+
+})
+
+gulp.task('b', ['build'])
+gulp.task('build', ['copy', 'styles', 'webpack'])
+
+gulp.task('styles', ['vendor-styles', 'postcss'])
+gulp.task('w', ['build', 'watch'])

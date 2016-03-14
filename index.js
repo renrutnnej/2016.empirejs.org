@@ -1,16 +1,11 @@
-'use strict';
+'use strict'
 
-require('babel/register')({
-  ignore:  /node_modules\/(?!paradigm.*)|(paradigm-gulp-watch)/
-});
+require('babel-core/register')
 
-require('babel/polyfill');
+require('babel-polyfill')
 
-var Server = require('paradigm-server-express');
+var Server = require('./server/express')
 
-var server = new Server({
-  paths: { routes: 'routes' },
-  port: 6060
-});
+var server = new Server()
 
-server.start();
+server.start()
