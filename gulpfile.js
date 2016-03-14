@@ -9,6 +9,7 @@ var chalk                  = require('chalk'),
     livereload             = require('gulp-livereload'),
     mkdirp                 = require('mkdirp'),
     nano                   = require('gulp-cssnano'),
+    nodemon                = require('nodemon'),
     path                   = require('path'),
     postcss                = require('gulp-postcss'),
     postcssAutoprefixer    = require('autoprefixer'),
@@ -19,6 +20,10 @@ var chalk                  = require('chalk'),
     postcssVars            = require('postcss-simple-vars'),
     sourcemaps             = require('gulp-sourcemaps'),
     webpack                = require('webpack-stream')
+
+var env = {
+  'NODE_ENV': 'development'
+}
 
 gulp.task('clean', function(done) {
   execSync('rm -rf public')

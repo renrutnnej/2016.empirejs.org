@@ -1,5 +1,5 @@
 import bodyParser      from 'body-parser'
-import {chalk, logger} from './logger'
+import {chalk, logger} from '../lib/logger'
 import express         from 'express'
 import path            from 'path'
 import serveStatic     from 'serve-static'
