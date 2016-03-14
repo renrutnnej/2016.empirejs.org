@@ -1,6 +1,7 @@
 import bodyParser      from 'body-parser'
 import {chalk, logger} from '../lib/logger'
 import express         from 'express'
+import hbs             from 'hbs'
 import path            from 'path'
 import serveStatic     from 'serve-static'
 
@@ -20,6 +21,10 @@ class Server {
     this.server.use(bodyParser.json({strict: false}))
     this.server.use(removePoweredBy)
     this.server.use(this.logRequestInfo)
+
+    this.server.set('views', path.join(__dirname, '../views'))
+    this.server.set('view engine', 'hbs')
+    this.server.engine('hbs', hbs.__express)
 
     this.loadRoutes()
 
