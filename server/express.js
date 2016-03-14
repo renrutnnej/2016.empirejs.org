@@ -59,7 +59,7 @@ class Server {
         return
       }
 
-      var name = matches[0].replace('./views/', '')
+      var name = matches[0].replace('./views/partials/', '')
       var template = fs.readFileSync(path.join(cwd, partial), 'utf8')
 
       hbs.registerPartial(name, template)
