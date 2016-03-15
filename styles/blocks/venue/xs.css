@@ -4,6 +4,7 @@
     padding: 0;
     width:100%;
 
+
     .venue-photo {
       background: center no-repeat url('/img/nmai-alt.jpg');
       height: 600px;
@@ -12,6 +13,7 @@
     .map-location-container {
       color: #fff;
       padding: 20px 0;
+      vertical-align: top;
 
       h2 {
         color: #fff;
@@ -33,5 +35,6 @@
       }
     .map-container {
       width: 100%;
+
     }
   }

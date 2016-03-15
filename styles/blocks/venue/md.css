@@ -2,6 +2,7 @@
 
   .section-event-map {
     overflow: hidden;
+    height:550px;
 
     .map-location-container {
       margin-bottom: 0;
@@ -12,16 +13,19 @@
       display: inline-block;
     }
 
-    .map-container {
-      width:40%;
-      display: inline-block;
-    }
+
 
     .venue-photo {
       background :center no-repeat url('/img/nmai-alt.jpg');
       height: 550px;
+      width:39%;
+      display: inline-block;
+    }
+    #map {
+      height:550px;
       width:40%;
       display: inline-block;
+
     }
 }
 
