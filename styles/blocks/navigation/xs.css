@@ -1,0 +1,16 @@
+#navigation {
+  background: $almostblack;
+  li {
+    display: inline-block;
+  }
+  li a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+  }
+  .navigation-logo {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+  }
+}

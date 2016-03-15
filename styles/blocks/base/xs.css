@@ -12,7 +12,7 @@ body {
 
 
 a {
-  color: #fff;
+  color: #fff !important;
   text-decoration: underline;
 }
 
@@ -44,7 +44,7 @@ ul, li {
 }
 
 .icon-container {
-  background-color: $empire_green;
+  background-color: $empire_orange;
   border-radius: 64px;
   color: #fff;
   display: block;
@@ -74,7 +74,7 @@ section.container {
 }
 
 .divider-inner {
-  background-color: $empire_green;
+  background-color: $empire_orange;
   height: 2px;
   margin: 0 auto 40px;
   width: 25%;
