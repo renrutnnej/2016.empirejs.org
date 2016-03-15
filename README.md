@@ -7,8 +7,9 @@ The public website for EmpireJS 2016.
 ```
 git clone git@github.com/empirejs/2016.empirejs.org
 cd 2016.empirejs.org
+bower install
 npm i
-gulp watch
+gulp w
 
 #
 # Do work. See changes
@@ -17,7 +18,7 @@ gulp watch
 
 ## Site structure
 
-This is a single-page site built with Handlebars and Stylus. Stylus files are laid out with Responsive Design in mind and are compiled with `gulp`.
+This is a single-page site built with Handlebars and Post CSS (CSS 4 pre-processor). CSS files are laid out with Responsive Design in mind and are compiled with `gulp`.
 
 #### Handlebars
 
@@ -26,7 +27,7 @@ There is a single include for all of the various section components in `views/in
 ```
 views/
   index.hbs
-  components/
+  partials/
     hero.hbs
     tickets.hbs
     ...etc. etc.
@@ -34,7 +35,7 @@ views/
 
 #### Stylus
 
-All of the `*.styl` files were rolled over from EmpireJS 2015 and are housed under `styles/components`. This is where most of the work will be done:
+All of the `*.styl` files were rolled over from EmpireJS 2015 and are housed under `styles/components`. This is where most of the old css lies (if needed):
 
 ```
 styles/
@@ -46,4 +47,4 @@ styles/
       xs.styl
 ```
 
-By convention each one of the stylus files for various breakpoints start with a CSS mediaquery. Since many of the stylus files are turned off for now since this is just a splashpage, it will also be necessary to turn them back on in `gulpfile.js` as we proceed with conference rollout.
+By convention each one of the stylus files for various breakpoints start with a CSS media query. Since many of the stylus files are turned off for now since this is just a splash page, it will also be necessary to turn them back on in `gulpfile.js` as we proceed with conference rollout.
