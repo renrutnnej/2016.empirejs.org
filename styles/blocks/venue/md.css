@@ -1,4 +1,4 @@
-@media (min-width: $sm) {
+@media (min-width: $md) {
 
   .section-event-map {
     overflow: hidden;
