@@ -1,0 +1,17 @@
+@media (min-width: $sm) {
+
+  #header-hero {
+    height: 100%;
+
+    #header-hero-logo {
+      img {
+        width: 70%;
+        float: right;
+      }
+    }
+    h1, h2 {
+      text-align: left;
+      padding: 0 0 0 10px;
+    }
+    }
+    }

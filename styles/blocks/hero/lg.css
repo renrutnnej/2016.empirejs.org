@@ -1,0 +1,6 @@
+@media (min-width: $md) {
+
+  #header-hero {
+    height: 100%;
+}
+}
