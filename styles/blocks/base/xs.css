@@ -15,6 +15,9 @@ a {
   color: #fff !important;
   text-decoration: underline;
 }
+.bg-white a {
+  color: $empire_orange !important;
+}
 
   &:hover {
     color: #ADADAD;
@@ -49,22 +52,18 @@ ul, li {
   color: #fff;
   display: block;
   height: 64px;
-  line-height: 60px;
   margin: 20px auto 20px;
   width: 64px;
   i {
+    padding-top:16px;
     display: block;
     font-size: 32px;
-    margin: 0 auto;
+    margin: 0px auto 0 auto;
     text-align: center;
   }
 
     &.icon-building-filled {
       margin-left: 3px;
-    }
-
-    &.icon-info {
-      //margin-left: 9px;
     }
   }
 
