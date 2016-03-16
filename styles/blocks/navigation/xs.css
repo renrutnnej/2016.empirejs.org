@@ -3,14 +3,33 @@
   li {
     display: inline-block;
   }
+  .navbar-brand {
+    display: inline-block;
+  }
+  .navbar-container {
+    display: inline-block;
+  }
   li a {
     height: 50px;
     line-height: 50px;
     padding: 0 15px;
   }
+  li a:hover {
+    background: $almostblack !important;
+    text-decoration: underline;
+  }
+  li a:active {
+    background: $almostblack !important;
+  }
   .navigation-logo {
     height: 50px;
     line-height: 50px;
     padding: 0 15px;
+  }
+  .navbar-toggle {
+    border: 1px solid #fff;
+  }
+  .icon-bar {
+    background: #fff;
   }
 }
