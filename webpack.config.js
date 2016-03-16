@@ -8,7 +8,8 @@ var config = {
 
   entry: {
     vendor: [
-      'jquery'
+      'jquery',
+      'bootstrap'
     ],
     app: './app/index.js'
   },
@@ -52,7 +53,8 @@ var config = {
     extensions: ['', '.hbs', '.js', '.json'],
     modulesDirectories: ['bower_components', 'node_modules'],
     alias: {
-      'jquery': path.join(__dirname, './bower_components/jquery/dist/jquery.js'),
+      'jquery': path.join(__dirname, './bower_components/jquery/dist/jquery.min.js'),
+      'bootstrap': path.join(__dirname, './bower_components/bootstrap/dist/js/bootstrap.min.js'),
     }
   },
 
