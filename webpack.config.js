@@ -64,11 +64,15 @@ var config = {
 
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     /*new ChunkManifestPlugin({
       filename: "manifest.json",
       manifestVariable: "webpackManifest"
     })*/
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
   ]
 }
 
