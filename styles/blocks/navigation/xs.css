@@ -1,5 +1,8 @@
 #navigation {
   background: $almostblack;
+  .navbar {
+    margin-bottom:0px !important;
+  }
   li {
     display: inline-block;
   }
