@@ -1,40 +1,31 @@
 #header-hero {
 
-  #header-hero-content {
-    min-height: 200px;
-
-    h1, h2  {
-      font-weight: bold;
-      margin: 5px 0 0 0;
-    }
-
-    h1 {
-      background: #333;
-      color: #fff;
-      line-height: 1.75;
-    }
+  #header-hero-date,
+  #header-hero-tickets {
+    height: 38px;
+    margin: 5px 0;
 
     h2 {
+      margin: 0;
+      padding: 0;
       text-transform: uppercase;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
       line-height: 1.5;
+    }
+  }
 
+  #header-hero-date {
+    background: $empire_orange;
+    color: #FFF;
+  }
 
-      &:first-child {
-        margin: 0;
-      }
+  #header-hero-tickets {
+    background: $empire_yellow;
 
-      &.location {
-        background: $empire_yellow;
-        a {
-          color: #333 !important;
-        }
-      }
-
-      &.date {
-        background: $empire_orange;
-        color: #fff;
+    .container {
+      a {
+        color: #333 !important;
       }
     }
   }
