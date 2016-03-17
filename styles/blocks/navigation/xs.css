@@ -16,6 +16,7 @@
     height: 50px;
     line-height: 50px;
     padding: 0 15px;
+    background: $almostblack !important;
   }
   li a:hover {
     background: $almostblack !important;
