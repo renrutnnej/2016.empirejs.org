@@ -39,11 +39,9 @@ class Server {
   loadHelpers() {
 
     var helpers = glob.sync('./views/helpers/**/*.js', {cwd})
-    console.error('helpers list', helpers)
-    helpers.forEach( function(helper) {
-      console.error('helper', helper)
-      require(path.join(cwd, helper))(hbs)
 
+    helpers.forEach( function(helper) {
+      require(path.join(cwd, helper))(hbs)
     })
 
   }
@@ -69,9 +67,7 @@ class Server {
     var partialLoaders = glob.sync('../views/partials/**/*.js')
 
     partialLoaders.forEach( function(partialLoader) {
-
       require(path.join(cwd, partialLoader))(hbs)
-
     })
   }
 
