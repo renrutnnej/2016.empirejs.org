@@ -4,13 +4,13 @@
     margin-bottom:0px !important;
   }
   li {
-    display: inline-block;
+    float:left;
   }
   .navbar-brand {
-    display: inline-block;
+    float:left;
   }
   .navbar-container {
-    display: inline-block;
+    float:left;
   }
   li a {
     height: 50px;
