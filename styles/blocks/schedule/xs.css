@@ -1,7 +1,8 @@
 .section-event-schedule {
+  background-color: #fff9ca;
+  padding-bottom: 30px;
 
   .event-schedule-body {
-    background-color: #fff;
     margin-left: 0;
 
     @media (min-width: $xs) {
