@@ -19,16 +19,6 @@
     background: $empire_orange;
     color: #FFF;
   }
-
-  #header-hero-tickets {
-    background: $empire_yellow;
-
-    .container {
-      a {
-        color: #333 !important;
-      }
-    }
-  }
 }
 
 @media mq-xs-min {

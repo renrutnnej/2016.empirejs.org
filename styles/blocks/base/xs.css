@@ -14,8 +14,8 @@ body {
 
 a {
   color: #fff !important;
-  text-decoration: underline;
 }
+
 .bg-white a {
   color: $empire_orange !important;
 }
