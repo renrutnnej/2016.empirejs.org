@@ -1,4 +1,11 @@
 #header-hero {
+  #header-hero-logo {
+  img {
+    display: cover;
+    margin: 0 auto;
+    width: 150%;
+  }
+}
 
   #header-hero-date,
   #header-hero-tickets {
