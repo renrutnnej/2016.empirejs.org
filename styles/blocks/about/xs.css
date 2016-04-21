@@ -24,3 +24,8 @@
     font-weight: bold;
   }
 }
+
+code {
+  color: $empire_orange;
+  background-color: rgba(241, 174, 50, 0.10);
+}

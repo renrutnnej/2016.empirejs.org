@@ -10,11 +10,13 @@ cd 2016.empirejs.org
 bower install
 npm i
 gulp w
-
-#
-# Do work. See changes
-#
 ```
+
+Go to localhost:6060
+
+Do work. See changes
+
+
 
 ## Site structure
 
