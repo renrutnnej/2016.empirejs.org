@@ -1,0 +1,60 @@
+@media (min-width: $md)  {
+
+  #section-sponsors {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  #sponsor-list {
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
+
+    .sponsor-section {
+      display: table;
+      margin: 0 auto 30px;
+      width: 100%;
+
+      a {
+        display: inline-block;
+        padding: 10px 0 0 0;
+        vertical-align: middle;
+      }
+    }
+
+    .sponsor-section.platinum {
+      a {
+        display: block;
+        padding: 40px 0 0 0;
+      }
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    .sponsor-section.gold {
+      max-width: 1200px;
+
+      img {
+        max-width: 600px;
+        margin: 0 30px;
+      }
+    }
+
+    .sponsor-section.silver {
+      img {
+        max-width: 300px;
+        margin: 0 10px;
+      }
+    }
+
+    .sponsor-section.startup {
+      max-width: 800px;
+      img {
+        max-width: 150px;
+        margin: 0 10px;
+      }
+    }
+  }
+}
