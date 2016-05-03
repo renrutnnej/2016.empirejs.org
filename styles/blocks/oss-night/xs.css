@@ -1,0 +1,31 @@
+#marquee-container {
+  text-align: center;
+}
+
+#marquee {
+  max-width: 400px;
+  width: 100%;
+}
+
+#about-tickets-sale {
+  margin-left: 40%;
+  margin-bottom: 40px;
+  border: 3px solid $empire_yellow;
+  padding: 15px 0px 0px 25px;
+  width: 240px;
+  height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+code {
+  color: $empire_orange;
+  background-color: rgba(241, 174, 50, 0.10);
+}
