@@ -8,8 +8,7 @@
 }
 
 #about-tickets-sale {
-  margin-left: 40%;
-  margin-bottom: 40px;
+  margin: 0px auto 40px auto;
   border: 3px solid $empire_yellow;
   padding: 15px 0px 0px 25px;
   width: 240px;

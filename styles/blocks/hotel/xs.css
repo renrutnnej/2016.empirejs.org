@@ -1,0 +1,23 @@
+#section-hotel {
+  background-color: #f1dbc3;
+  padding-bottom: 20px;
+  #book-hotel {
+    margin: 0px auto 40px auto;
+    border: 3px solid #f1b034;;
+    padding: 15px 0px 0px 25px;
+    width: 260px;
+    height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    a {
+      color: #000;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}
