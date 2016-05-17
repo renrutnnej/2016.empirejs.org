@@ -41,10 +41,9 @@
       flex-basis: 80%;
       max-width: 600px;
       display: inline-block;
-      margin: 0 0 0 40px;
 
       a {
-        color: #000;
+        color: $empire_orange;
         text-decoration: underline;
       }
 
