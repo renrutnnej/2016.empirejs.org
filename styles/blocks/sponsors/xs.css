@@ -1,6 +1,6 @@
 #section-sponsors {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 #sponsor-list {
@@ -23,22 +23,27 @@
     margin: 30px 0 30px 0;
 
     img {
-      width: 450px;
+      max-width: 300px;
+      width: 300px;
+    }
+
+    a:last-child {
+      padding: 25px 0 0 0;
     }
   }
 
   .sponsor-section.silver {
-    img {
-      width: 300px;
-    }
-  }
-
-  .sponsor-section.startup {
-    max-width: 800px;
+    margin: 0 auto 10px;
     img {
       width: 200px;
     }
   }
 
-
+  .sponsor-section.startup {
+    margin: 0 auto;
+    max-width: 320px;
+    img {
+      width: 100px;
+    }
+  }
 }

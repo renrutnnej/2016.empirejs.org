@@ -35,14 +35,28 @@
 
     .sponsor-section.gold {
       max-width: 1200px;
+      padding: 0 0 30px 0;
 
       img {
         max-width: 600px;
         margin: 0 30px;
       }
+
+      a {
+        padding: 20px 0 0 0;
+      }
+
+      a:first-child {
+        padding: 0;
+      }
+
+      a:last-child {
+        padding: 50px 0 0 0;
+      }
     }
 
     .sponsor-section.silver {
+      padding: 0 0 30px 0;
       img {
         max-width: 300px;
         margin: 0 10px;

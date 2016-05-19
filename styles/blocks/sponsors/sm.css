@@ -1,0 +1,29 @@
+@media (min-width: $sm)  {
+  #section-sponsors {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  #sponsor-list {
+    .sponsor-section.gold {
+      max-width: 1200px;
+
+      img {
+        width: 450px;
+      }
+    }
+
+    .sponsor-section.silver {
+      img {
+        width: 300px;
+      }
+    }
+
+    .sponsor-section.startup {
+      max-width: 800px;
+      img {
+        width: 200px;
+      }
+    }
+  }
+}
