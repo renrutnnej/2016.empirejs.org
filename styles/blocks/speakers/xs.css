@@ -16,7 +16,6 @@
     vertical-align: top;
     width: 140px;
 
-
     .speaker-img {
       height: 140px;
       width: 140px;
@@ -38,9 +37,9 @@
         display: inline-block;
       }
     }
-    }
+  }
 
   .speaker:nth-child(5n + 5) {
     margin-right: 0;
   }
-  }
+}
